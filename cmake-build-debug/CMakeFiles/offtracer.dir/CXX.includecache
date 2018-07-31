@@ -11,4 +11,18 @@ iostream
 -
 fstream
 -
+ray.hpp
+/home/stel/workspace/offtracer/ray.hpp
+
+/home/stel/workspace/offtracer/ray.hpp
+vec3.hpp
+/home/stel/workspace/offtracer/vec3.hpp
+
+/home/stel/workspace/offtracer/vec3.hpp
+math.h
+-
+stdlib.h
+-
+iostream
+-
 

@@ -3,3 +3,5 @@
 
 CMakeFiles/offtracer.dir/main.cpp.o
  /home/stel/workspace/offtracer/main.cpp
+ /home/stel/workspace/offtracer/ray.hpp
+ /home/stel/workspace/offtracer/vec3.hpp
