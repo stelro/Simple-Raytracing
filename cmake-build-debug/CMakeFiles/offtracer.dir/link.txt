@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/offtracer.dir/main.cpp.o  -o offtracer 
