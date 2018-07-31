@@ -84,6 +84,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/stel/workspace/offtracer/cmake-build-debug/vec3.hpp">
+			<Option target="offtracer"/>
+		</Unit>
 		<Unit filename="/home/stel/workspace/offtracer/main.cpp">
 			<Option target="offtracer"/>
 		</Unit>
