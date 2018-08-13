@@ -6,6 +6,16 @@
 
 #IncludeRegexTransform: 
 
+/home/stel/workspace/offtracer/hitable.hh
+vec3.hpp
+/home/stel/workspace/offtracer/vec3.hpp
+ray.hpp
+/home/stel/workspace/offtracer/ray.hpp
+
+/home/stel/workspace/offtracer/hitable_list.hh
+hitable.hh
+/home/stel/workspace/offtracer/hitable.hh
+
 /home/stel/workspace/offtracer/main.cpp
 iostream
 -
@@ -13,10 +23,20 @@ fstream
 -
 ray.hpp
 /home/stel/workspace/offtracer/ray.hpp
+hitable.hh
+/home/stel/workspace/offtracer/hitable.hh
+sphere.hh
+/home/stel/workspace/offtracer/sphere.hh
+hitable_list.hh
+/home/stel/workspace/offtracer/hitable_list.hh
 
 /home/stel/workspace/offtracer/ray.hpp
 vec3.hpp
 /home/stel/workspace/offtracer/vec3.hpp
+
+/home/stel/workspace/offtracer/sphere.hh
+hitable.hh
+/home/stel/workspace/offtracer/hitable.hh
 
 /home/stel/workspace/offtracer/vec3.hpp
 math.h

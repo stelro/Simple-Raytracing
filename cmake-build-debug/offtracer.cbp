@@ -84,10 +84,19 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/stel/workspace/offtracer/hitable.hh">
+			<Option target="offtracer"/>
+		</Unit>
+		<Unit filename="/home/stel/workspace/offtracer/hitable_list.hh">
+			<Option target="offtracer"/>
+		</Unit>
 		<Unit filename="/home/stel/workspace/offtracer/main.cpp">
 			<Option target="offtracer"/>
 		</Unit>
 		<Unit filename="/home/stel/workspace/offtracer/ray.hpp">
+			<Option target="offtracer"/>
+		</Unit>
+		<Unit filename="/home/stel/workspace/offtracer/sphere.hh">
 			<Option target="offtracer"/>
 		</Unit>
 		<Unit filename="/home/stel/workspace/offtracer/vec3.hpp">
