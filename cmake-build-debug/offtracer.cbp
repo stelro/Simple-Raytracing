@@ -84,6 +84,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/stel/workspace/offtracer/camera.hh">
+			<Option target="offtracer"/>
+		</Unit>
 		<Unit filename="/home/stel/workspace/offtracer/hitable.hh">
 			<Option target="offtracer"/>
 		</Unit>
