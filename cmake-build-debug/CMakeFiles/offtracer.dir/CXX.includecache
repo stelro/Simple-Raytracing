@@ -22,10 +22,16 @@ ray.hpp
 hitable.hh
 /home/stel/workspace/offtracer/hitable.hh
 
+/home/stel/workspace/offtracer/lambertian.hh
+material.hh
+/home/stel/workspace/offtracer/material.hh
+
 /home/stel/workspace/offtracer/main.cpp
 iostream
 -
 fstream
+-
+chrono
 -
 ray.hpp
 /home/stel/workspace/offtracer/ray.hpp
@@ -37,6 +43,24 @@ hitable_list.hh
 /home/stel/workspace/offtracer/hitable_list.hh
 camera.hh
 /home/stel/workspace/offtracer/camera.hh
+material.hh
+/home/stel/workspace/offtracer/material.hh
+lambertian.hh
+/home/stel/workspace/offtracer/lambertian.hh
+metal.hh
+/home/stel/workspace/offtracer/metal.hh
+
+/home/stel/workspace/offtracer/material.hh
+ray.hpp
+/home/stel/workspace/offtracer/ray.hpp
+hitable.hh
+/home/stel/workspace/offtracer/hitable.hh
+
+/home/stel/workspace/offtracer/metal.hh
+vec3.hpp
+/home/stel/workspace/offtracer/vec3.hpp
+material.hh
+/home/stel/workspace/offtracer/material.hh
 
 /home/stel/workspace/offtracer/ray.hpp
 vec3.hpp

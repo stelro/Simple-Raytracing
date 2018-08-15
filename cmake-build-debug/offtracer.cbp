@@ -93,7 +93,16 @@
 		<Unit filename="/home/stel/workspace/offtracer/hitable_list.hh">
 			<Option target="offtracer"/>
 		</Unit>
+		<Unit filename="/home/stel/workspace/offtracer/lambertian.hh">
+			<Option target="offtracer"/>
+		</Unit>
 		<Unit filename="/home/stel/workspace/offtracer/main.cpp">
+			<Option target="offtracer"/>
+		</Unit>
+		<Unit filename="/home/stel/workspace/offtracer/material.hh">
+			<Option target="offtracer"/>
+		</Unit>
+		<Unit filename="/home/stel/workspace/offtracer/metal.hh">
 			<Option target="offtracer"/>
 		</Unit>
 		<Unit filename="/home/stel/workspace/offtracer/ray.hpp">
