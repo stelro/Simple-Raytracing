@@ -44,7 +44,8 @@ int main()
     std::ofstream file("image.ppm");
     file << "P3\n" << width << " " << height << "\n255\n";
 
-    camera cam;
+
+    camera cam(vec3(-2.0f, 2.0f, 1.0f), vec3(0.0f, 0.0f, -1.0f), vec3(0.0f, 1.0f, 0.0f), 45, (float(width)/float(height)));
 
     auto start_time = std::chrono::high_resolution_clock::now();
 
@@ -56,6 +57,8 @@ int main()
     list[4] = new sphere(vec3(-1.0f, 0.0f, -1.0f), -0.45f, new dialectric(1.5f));
 
     hitable* world = new hitable_list(list, 5);
+
+
 
     for ( int j = height - 1; j >= 0; j-- ) {
         for ( int i = 0; i < width; i++ ) {
