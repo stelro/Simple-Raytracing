@@ -9,6 +9,7 @@
 #include "material.hh"
 #include "lambertian.hh"
 #include "metal.hh"
+#include "dialectric.hh"
 
 const int width = 600;
 const int height = 300;
@@ -47,13 +48,14 @@ int main()
 
     auto start_time = std::chrono::high_resolution_clock::now();
 
-    hitable *list[4];
-    list[0] = new sphere(vec3(0.0f, 0.0f, -1.0f), 0.5f, new lambartian(vec3(0.8, 0.3, 0.3)));
+    hitable *list[5];
+    list[0] = new sphere(vec3(0.0f, 0.0f, -1.0f), 0.5f, new lambartian(vec3(0.1, 0.2, 0.5)));
     list[1] = new sphere(vec3(0.0f, -100.5f, -1.0f), 100.0f, new lambartian(vec3(0.8, 0.8, 0.0)));
-    list[2] = new sphere(vec3(1.0f, 0.0f, -1.0f), 0.5f, new metal(vec3(0.8, 0.6, 0.2), 1.0f));
-    list[3] = new sphere(vec3(-1.0f, 0.0f, -1.0f), 0.5f, new metal(vec3(0.8, 0.8, 0.8), 0.3f));
+    list[2] = new sphere(vec3(1.0f, 0.0f, -1.0f), 0.5f, new metal(vec3(0.8, 0.6, 0.2), 0.0f));
+    list[3] = new sphere(vec3(-1.0f, 0.0f, -1.0f), 0.5f, new dialectric(1.5f));
+    list[4] = new sphere(vec3(-1.0f, 0.0f, -1.0f), -0.45f, new dialectric(1.5f));
 
-    hitable* world = new hitable_list(list, 4);
+    hitable* world = new hitable_list(list, 5);
 
     for ( int j = height - 1; j >= 0; j-- ) {
         for ( int i = 0; i < width; i++ ) {

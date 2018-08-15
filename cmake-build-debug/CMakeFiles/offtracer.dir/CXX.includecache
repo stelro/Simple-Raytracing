@@ -12,6 +12,10 @@ vec3.hpp
 ray.hpp
 /home/stel/workspace/offtracer/ray.hpp
 
+/home/stel/workspace/offtracer/dialectric.hh
+material.hh
+/home/stel/workspace/offtracer/material.hh
+
 /home/stel/workspace/offtracer/hitable.hh
 vec3.hpp
 /home/stel/workspace/offtracer/vec3.hpp
@@ -49,6 +53,8 @@ lambertian.hh
 /home/stel/workspace/offtracer/lambertian.hh
 metal.hh
 /home/stel/workspace/offtracer/metal.hh
+dialectric.hh
+/home/stel/workspace/offtracer/dialectric.hh
 
 /home/stel/workspace/offtracer/material.hh
 ray.hpp
