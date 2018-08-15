@@ -44,8 +44,20 @@ int main()
     std::ofstream file("image.ppm");
     file << "P3\n" << width << " " << height << "\n255\n";
 
+    vec3 lookfrom(3.0f, 3.0f, 2.0f);
+    vec3 lookat(0.0f, 0.0f, -1.0f);
+    float dist_to_focus = (lookfrom - lookat).length();
+    float aperture = 2.0f;
 
-    camera cam(vec3(-2.0f, 2.0f, 1.0f), vec3(0.0f, 0.0f, -1.0f), vec3(0.0f, 1.0f, 0.0f), 45, (float(width)/float(height)));
+    camera cam(
+        lookfrom,
+        lookat,
+        vec3(0.0f, 1.0f, 0.0f),
+        20,
+        (float(width)/float(height)),
+        aperture,
+        dist_to_focus
+        );
 
     auto start_time = std::chrono::high_resolution_clock::now();
 
