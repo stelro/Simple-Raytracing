@@ -11,9 +11,9 @@
 #include "metal.hh"
 #include "dialectric.hh"
 
-const int width = 600;
-const int height = 300;
-const int ns = 100;
+const int width = 1200;
+const int height = 800;
+const int ns = 10;
 
 
 
@@ -21,22 +21,54 @@ const int ns = 100;
 vec3 color(const ray& r, hitable *world, int depth) {
 
     hit_record rec;
-    if ( world->hit(r, 0.001f, MAXFLOAT, rec) ) {
+    if (world->hit(r, 0.001, MAXFLOAT, rec)) {
         ray scattered;
         vec3 attenuation;
-        if ( depth < 50 && rec.mat_ptr->scatter(r, rec, attenuation, scattered)) {
-            return attenuation * color(scattered, world, depth + 1);
-        } else {
-            return vec3(0.0f, 0.0f, 0.0f);
+        if (depth < 50 && rec.mat_ptr->scatter(r, rec, attenuation, scattered)) {
+            return attenuation*color(scattered, world, depth+1);
         }
-    } else {
-
+        else {
+            return vec3(0,0,0);
+        }
+    }
+    else {
         vec3 unit_direction = unit_vector(r.direction);
-        float t = 0.5f*(unit_direction.y() + 1.0f);
-        return (1.0f - t)*vec3(1.0f, 1.0f, 1.0f) + t*vec3(0.5f, 0.7f, 1.0f);
+        float t = 0.5*(unit_direction.y() + 1.0);
+        return (1.0-t)*vec3(1.0, 1.0, 1.0) + t*vec3(0.5, 0.7, 1.0);
     }
 }
 
+hitable* random_scene() {
+    int n = 20;
+    hitable **list = new hitable*[n+1];
+    list[0] =  new sphere(vec3(0,-1000,0), 1000, new lambartian(vec3(0.5, 0.5, 0.5)));
+    int i = 1;
+    for (int a = 0; a < 3; a++) {
+        for (int b = 0; b < 5; b++) {
+            float choose_mat = drand48();
+            vec3 center(a+0.9*drand48(),0.2,b+0.9*drand48());
+            if ((center-vec3(4,0.2,0)).length() > 0.9) {
+                if (choose_mat < 0.8) {  // diffuse
+                    list[i++] = new sphere(center, 0.2, new lambartian(vec3(drand48()*drand48(), drand48()*drand48(), drand48()*drand48())));
+                }
+                else if (choose_mat < 0.95) { // metal
+                    list[i++] = new sphere(center, 0.2,
+                                           new metal(vec3(0.5*(1 + drand48()), 0.5*(1 + drand48()), 0.5*(1 + drand48())),  0.5*drand48()));
+                }
+                else {  // glass
+                    list[i++] = new sphere(center, 0.2, new dialectric(1.5));
+                }
+            }
+        }
+    }
+
+    list[i++] = new sphere(vec3(4, 1, 0), 1.0, new dialectric(1.5));
+    list[i++] = new sphere(vec3(-4, 1, 0), 1.0, new lambartian(vec3(0.4, 0.2, 0.1)));
+    list[i++] = new sphere(vec3(0, 1, 0), 1.0, new metal(vec3(0.7, 0.6, 0.5), 0.0));
+
+    return new hitable_list(list,i);
+
+}
 
 int main()
 {
@@ -44,20 +76,13 @@ int main()
     std::ofstream file("image.ppm");
     file << "P3\n" << width << " " << height << "\n255\n";
 
-    vec3 lookfrom(3.0f, 3.0f, 2.0f);
-    vec3 lookat(0.0f, 0.0f, -1.0f);
-    float dist_to_focus = (lookfrom - lookat).length();
-    float aperture = 2.0f;
+    vec3 lookfrom(13,2,3);
+    vec3 lookat(0,0,0);
+    float dist_to_focus = 10.0;
+    float aperture = 0.1;
 
-    camera cam(
-        lookfrom,
-        lookat,
-        vec3(0.0f, 1.0f, 0.0f),
-        20,
-        (float(width)/float(height)),
-        aperture,
-        dist_to_focus
-        );
+    camera cam(lookfrom, lookat, vec3(0,1,0), 20, float(width)/float(height), aperture, dist_to_focus);
+
 
     auto start_time = std::chrono::high_resolution_clock::now();
 
@@ -68,7 +93,7 @@ int main()
     list[3] = new sphere(vec3(-1.0f, 0.0f, -1.0f), 0.5f, new dialectric(1.5f));
     list[4] = new sphere(vec3(-1.0f, 0.0f, -1.0f), -0.45f, new dialectric(1.5f));
 
-    hitable* world = new hitable_list(list, 5);
+    hitable* world = random_scene();
 
 
 
