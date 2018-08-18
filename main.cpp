@@ -11,8 +11,8 @@
 #include "metal.hh"
 #include "dialectric.hh"
 
-const int width = 1200;
-const int height = 800;
+const int width = 600;
+const int height = 300;
 const int ns = 10;
 
 
@@ -62,9 +62,9 @@ hitable* random_scene() {
         }
     }
 
-    list[i++] = new sphere(vec3(4, 1, 0), 1.0, new dialectric(1.5));
+    list[i++] = new sphere(vec3(0, 1, 0), 1.0, new dialectric(1.5));
     list[i++] = new sphere(vec3(-4, 1, 0), 1.0, new lambartian(vec3(0.4, 0.2, 0.1)));
-    list[i++] = new sphere(vec3(0, 1, 0), 1.0, new metal(vec3(0.7, 0.6, 0.5), 0.0));
+    list[i++] = new sphere(vec3(4, 1, 0), 1.0, new metal(vec3(0.7, 0.6, 0.5), 0.0));
 
     return new hitable_list(list,i);
 
