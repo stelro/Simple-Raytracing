@@ -10,6 +10,7 @@
 #include "lambertian.hh"
 #include "metal.hh"
 #include "dialectric.hh"
+#include "movine_sphere.hh"
 
 const int width = 600;
 const int height = 300;
@@ -39,17 +40,17 @@ vec3 color(const ray& r, hitable *world, int depth) {
 }
 
 hitable* random_scene() {
-    int n = 20;
+    int n = 500;
     hitable **list = new hitable*[n+1];
     list[0] =  new sphere(vec3(0,-1000,0), 1000, new lambartian(vec3(0.5, 0.5, 0.5)));
     int i = 1;
-    for (int a = 0; a < 3; a++) {
-        for (int b = 0; b < 5; b++) {
+    for (int a = -10; a < 10; a++) {
+        for (int b = -10; b < -10; b++) {
             float choose_mat = drand48();
             vec3 center(a+0.9*drand48(),0.2,b+0.9*drand48());
             if ((center-vec3(4,0.2,0)).length() > 0.9) {
                 if (choose_mat < 0.8) {  // diffuse
-                    list[i++] = new sphere(center, 0.2, new lambartian(vec3(drand48()*drand48(), drand48()*drand48(), drand48()*drand48())));
+                    list[i++] = new moving_sphere(center, 0.2, new lambartian(vec3(drand48()*drand48(), drand48()*drand48(), drand48()*drand48())));
                 }
                 else if (choose_mat < 0.95) { // metal
                     list[i++] = new sphere(center, 0.2,

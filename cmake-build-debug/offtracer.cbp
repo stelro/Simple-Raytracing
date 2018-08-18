@@ -108,6 +108,9 @@
 		<Unit filename="/home/stel/workspace/offtracer/metal.hh">
 			<Option target="offtracer"/>
 		</Unit>
+		<Unit filename="/home/stel/workspace/offtracer/movine_sphere.hh">
+			<Option target="offtracer"/>
+		</Unit>
 		<Unit filename="/home/stel/workspace/offtracer/ray.hpp">
 			<Option target="offtracer"/>
 		</Unit>
