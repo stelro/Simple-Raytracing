@@ -55,6 +55,8 @@ metal.hh
 /home/stel/workspace/offtracer/metal.hh
 dialectric.hh
 /home/stel/workspace/offtracer/dialectric.hh
+movine_sphere.hh
+/home/stel/workspace/offtracer/movine_sphere.hh
 
 /home/stel/workspace/offtracer/material.hh
 ray.hpp
@@ -67,6 +69,10 @@ vec3.hpp
 /home/stel/workspace/offtracer/vec3.hpp
 material.hh
 /home/stel/workspace/offtracer/material.hh
+
+/home/stel/workspace/offtracer/movine_sphere.hh
+hitable.hh
+/home/stel/workspace/offtracer/hitable.hh
 
 /home/stel/workspace/offtracer/ray.hpp
 vec3.hpp

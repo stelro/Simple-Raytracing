@@ -10,6 +10,7 @@ CMakeFiles/offtracer.dir/main.cpp.o
  /home/stel/workspace/offtracer/main.cpp
  /home/stel/workspace/offtracer/material.hh
  /home/stel/workspace/offtracer/metal.hh
+ /home/stel/workspace/offtracer/movine_sphere.hh
  /home/stel/workspace/offtracer/ray.hpp
  /home/stel/workspace/offtracer/sphere.hh
  /home/stel/workspace/offtracer/vec3.hpp
