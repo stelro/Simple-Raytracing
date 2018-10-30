@@ -95,18 +95,17 @@ int main()
     list[3] = new sphere(vec3(-1.0f, 0.0f, -1.0f), 0.5f, new dialectric(1.5f));
     list[4] = new sphere(vec3(-1.0f, 0.0f, -1.0f), -0.45f, new dialectric(1.5f));
 
-    hitable* world = random_scene();
-
-
+    //hitable* world = random_scene();
+    hitable* world = new hitable_list(list, 5);
 
     for ( int j = height - 1; j >= 0; j-- ) {
         for ( int i = 0; i < width; i++ ) {
             vec3 col(0.0f, 0.0f, 0.0f);
 
             for (int s = 0; s < ns; s++) {
+
                 float u = float (i + drand48()) / float (width);
                 float v = float (j + drand48()) / float (height);
-
 
                 ray r = cam.get_ray(u,v);
                 vec3 p = r.point_at_parameter(2.0f);
