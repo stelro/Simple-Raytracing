@@ -3,4 +3,5 @@ project(offtracer)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(offtracer vec3.hpp main.cpp ray.hpp hitable.hh sphere.hh hitable_list.hh camera.hh material.hh lambertian.hh metal.hh dialectric.hh movine_sphere.hh)
+add_executable(offtracer vec3.hpp main.cpp ray.hpp hitable.hh sphere.hh hitable_list.hh camera.hh
+  material.hh lambertian.hh metal.hh dialectric.hh movine_sphere.hh aabb.hh bvh_node.hh)
