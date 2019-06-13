@@ -41,8 +41,10 @@ vec3 color( const ray &r, hitable *world, int depth ) {
 hitable *random_scene() {
   int n = 500;
   hitable **list = new hitable *[ n + 1 ];
-  list[ 0 ] = new sphere( vec3( 0, -1000, 0 ), 1000,
-                          new lambartian( vec3( 0.5, 0.5, 0.5 ) ) );
+  texture *cheker =
+      new checker_texture( new constant_texture( vec3( 0.2f, 0.3f, 0.1f ) ),
+                           new constant_texture( vec3( 0.9f, 0.9f, 0.9f ) ) );
+  list[ 0 ] = new sphere( vec3( 0, -1000, 0 ), 1000, new lambartian( cheker ) );
   int i = 1;
   for ( int a = -11; a < 11; a++ ) {
     for ( int b = -11; b < 11; b++ ) {
@@ -52,9 +54,9 @@ hitable *random_scene() {
         if ( choose_mat < 0.8 ) {    // diffuse
           list[ i++ ] =
               new sphere( center, 0.2,
-                          new lambartian( vec3( drand48() * drand48(),
-                                                drand48() * drand48(),
-                                                drand48() * drand48() ) ) );
+                          new lambartian( new constant_texture( vec3(
+                              drand48() * drand48(), drand48() * drand48(),
+                              drand48() * drand48() ) ) ) );
         } else if ( choose_mat < 0.95 ) {    // metal
           list[ i++ ] = new sphere(
               center, 0.2,
@@ -69,8 +71,9 @@ hitable *random_scene() {
   }
 
   list[ i++ ] = new sphere( vec3( 0, 1, 0 ), 1.0, new dialectric( 1.5 ) );
-  list[ i++ ] = new sphere( vec3( -4, 1, 0 ), 1.0,
-                            new lambartian( vec3( 0.4, 0.2, 0.1 ) ) );
+  list[ i++ ] = new sphere(
+      vec3( -4, 1, 0 ), 1.0,
+      new lambartian( new constant_texture( vec3( 0.4, 0.2, 0.1 ) ) ) );
   list[ i++ ] = new sphere( vec3( 4, 1, 0 ), 1.0,
                             new metal( vec3( 0.7, 0.6, 0.5 ), 0.0 ) );
 
